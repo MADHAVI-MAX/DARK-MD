@@ -1,6 +1,6 @@
 {
   "name": "🔱M_A_D_H_A_V_I🔱",
-  "version": "1.0.0",
+  "version": "0.1.2",
   "description": "A WhatsApp bot created using Node.js",
   "main": "index.js",
   "scripts": {
