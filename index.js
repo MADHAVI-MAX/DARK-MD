@@ -240,7 +240,7 @@ async function connectToWA() {
     //Owner react
     if (senderNumber.includes("94772906743")) {
       if (isReact) return;
-      m.react("❤️"):
+      m.react("❤️");
     }
     //work type
     if (!isOwner && config.MODE === "private") return;
