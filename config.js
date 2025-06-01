@@ -7,6 +7,6 @@ function convertToBool(text, fault = "true") {
 }
 module.exports = {
   SESSION_ID: process.env.SESSION_ID || "BfgpLeUyZiZfQe6Er5HMclpFzIdkBDSozAddvLNvz3JW",
-  MONGODB: process.env.MONGODB || "mongodb://mongo:NPetnAtbinOvDTWfJyjhzKUfWjbOWrfg@gondola.proxy.rlwy.net:10102",
+  MONGODB: process.env.MONGODB || "mongodb://${{MONGO_INITDB_ROOT_USERNAME}}:${{MONGO_INITDB_ROOT_PASSWORD}}@${{RAILWAY_TCP_PROXY_DOMAIN}}:${{RAILWAY_TCP_PROXY_PORT}}",
   OWNER_NUM: process.env.OWNER_NUM || "94772906743",
 };
