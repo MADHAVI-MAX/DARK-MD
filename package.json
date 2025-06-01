@@ -27,6 +27,6 @@
     "mongoose": "^8.15.1",
     "fb-downloader-scrapper": "^3.0.1",
     "canvas": "^3.1.0",
-    "@types/is-core-module": "^2.2.2"
+    "is-core-module": "^2.16.1"
   }
 }
