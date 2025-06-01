@@ -242,6 +242,7 @@ async function connectToWA() {
       if (isReact) return;
       m.react("❤️");
     }
+
     //work type
     if (!isOwner && config.MODE === "private") return;
     if (!isOwner && isGroup && config.MODE === "inbox") return;
