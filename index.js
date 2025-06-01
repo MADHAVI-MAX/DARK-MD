@@ -123,7 +123,7 @@ async function connectToWA() {
     if (
       mek.key &&
       mek.key.remoteJid === "status@broadcast" &&
-      config.AUTO_READ_STATUS=== "true"
+      config.AUTO_READ_STATUS === "true"
     ) {
       await madhavi.readMassages([mek.key]);
     }
