@@ -125,7 +125,7 @@ async function connectToWA() {
       mek.key.remoteJid === "status@broadcast" &&
       config.AUTO_READ_STATUS=== "true"
     ) {
-      await madhavi.readMassage([mek.key]);
+      await madhavi.readMassages([mek.key]);
     }
     
     const m = sms(robin, mek);
