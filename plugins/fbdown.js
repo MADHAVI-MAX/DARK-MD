@@ -37,7 +37,7 @@ cmd(
 👻 *Title*: ${title || "Unknown"}
 👻 *Quality*: ${hd ? "HD Available" : "SD Only"}
 
-𝐌𝐚𝐝𝐞 𝐛𝐲 𝐒_𝐈_𝐇_𝐈_𝐋_𝐄_𝐋
+𝐌𝐚𝐝𝐞 𝐛𝐲 L_A_K_S_H_A_N
         `;
       await robin.sendMessage(
         from,
