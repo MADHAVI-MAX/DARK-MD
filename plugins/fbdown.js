@@ -10,35 +10,7 @@ cmd(
     category: "download",
     filename: __filename,
   },
-  async (
-    robin,
-    mek,
-    m,
-    {
-      from,
-      quoted,
-      body,
-      isCmd,
-      command,
-      args,
-      q,
-      isGroup,
-      sender,
-      senderNumber,
-      botNumber2,
-      botNumber,
-      pushname,
-      isMe,
-      isOwner,
-      groupMetadata,
-      groupName,
-      participants,
-      groupAdmins,
-      isBotAdmins,
-      isAdmins,
-      reply,
-    }
-  ) => {
+  async (robin, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply,}) => {
     try {
       if (!q) return reply("*Please provide a valid Facebook video URL!* 🌚❤️");
 
@@ -74,30 +46,20 @@ cmd(
             url: "https://raw.githubusercontent.com/Dark-Robin/Bot-Helper/refs/heads/main/autoimage/Bot%20fb-1.jpg"}, caption: desc,},{ quoted: mek });
       // Send the video if available
       if (hd) {
-        await robin.sendMessage(
-          from,
-          { video: { url: hd }, caption: "----------HD VIDEO----------" },
-          { quoted: mek }
-        );
-        await robin.sendMessage(
-          from,
-          { video: { url: sd }, caption: "----------SD VIDEO----------" },
-          { quoted: mek }
-        );
+        await robin.sendMessage(from, { video: { url: hd }, caption: "----------HD VIDEO----------" }, { quoted: mek });
+        await robin.sendMessage(from, { video: { url: sd }, caption: "----------SD VIDEO----------" }, { quoted: mek });
       } else if (sd) {
-        await robin.sendMessage(
-          from,
-          { video: { url: sd }, caption: "----------SD VIDEO----------" },
-          { quoted: mek }
+        await robin.sendMessage(from, { video: { url: sd }, caption: "----------SD VIDEO----------" }, { quoted: mek }
         );
       } else {
         return reply("*No downloadable video found!* 🌚");
       }
 
       return reply("*Thanks for using my bot* 🌚❤️");
+
+      
     } catch (e) {
       console.error(e);
       reply(`*Error:* ${e.message || e}`);
     }
-  }
-);
+  });
