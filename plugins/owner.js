@@ -70,7 +70,7 @@ async (robin, mek, m, { from, isGroup, isAdmins, isBotAdmins, reply, quoted }) =
         // Confirm the action
         return reply(`✅ Successfully removed: @${target.split('@')[0]}`);
     } catch (e) {
-        console.error("Kick Error:", e);
+        console.error("Kick Error!:", e);
         reply(`❌ Failed to remove the user. Error: ${e.message}`);
     }
 });
