@@ -1,104 +1,116 @@
-const { cmd, commands } = require("../command");
-const config = require('../config');
-cmd({
-    pattern: "menu",
-    alise: ["getmenu"],
-    react: "🏚️",
-    desc: "get cmd list",
-    category: "main",
-    filename: __filename,
-  },
-  async (
-    robin,
-    mek,
-    m,
-    {
-      from,
-      quoted,
-      body,
-      isCmd,
-      command,
-      args,
-      q,
-      isGroup,
-      sender,
-      senderNumber,
-      botNumber2,
-      botNumber,
-      pushname,
-      isMe,
-      isOwner,
-      groupMetadata,
-      groupName,
-      participants,
-      groupAdmins,
-      isBotAdmins,
-      isAdmins,
-      reply,
-    }
-  ) => {
-    try {
-      let menu = {
-        main: "",
-        download: "",
-        group: "",
-        owner: "",
-        convert: "",
-        search: "",
-      };
+const menus = {
+  main: `
+🔘 MAIN MENU
 
-      for (let i = 0; i < commands.length; i++) {
-        if (commands[i].pattern && !commands[i].dontAddCommandList) {
-          menu[
-            commands[i].category
-          ] += `${config.PREFIX}${commands[i].pattern}\n`;
-        }
-      }
+1. 📥 Download Commands
+2. 🔎 Search Commands
+3. 💾 Save Commands
+4. 🐞 Bug Tools
+5. 🎞️ Movie Commands
+6. 🔄 Convert Tools
+7. 🖼️ Logo Maker
+8. ℹ️ About Bot
 
-      let madeMenu = `👋 *හායි ලස්සන ළමයෝ  ${pushname}*
+Type number (1-8) to select a category.
+`,
 
+  download: `
+📥 DOWNLOAD COMMANDS
 
-| *MAIN COMMANDS* |
-    ▫️.alive
-    ▫️.menu
-    ▫️
-    ▫️
-    ▫️
-| *DOWNLOAD COMMANDS* |
-    ▫️
-    ▫️
-    ▫️
-| *GROUP COMMANDS* |
-${menu.group}
-| *OWNER COMMANDS* |
-    ▫️.restart
-    ▫️.update
-| *CONVERT COMMANDS* |
-    ▫️
-    ▫️
-    ▫️
-    ▫️
-| *SEARCH COMMANDS* |
-${menu.search}
+* yt
+* tiktok
+* fb
+* ig
+* mediafire
+* githubdl
+* soundcloud
+* pinterest
+* zippyshare
 
+Reply 0 to return to menu.
+`,
 
-🥶𝐌𝐚𝐝𝐞 𝐛𝐲 🔱M_A_D_H_A_V_I🔱🥶
+  search: `
+🔎 SEARCH COMMANDS
 
-> MADHAVI MENU MSG
-`;
-      await robin.sendMessage(
-        from,
-        {
-          image: {
-            url: "https://raw.githubusercontent.com/MADHAVI-MAX/BOT-HELPER/refs/heads/main/DFJ.jpg",
-          },
-          caption: madeMenu,
-        },
-        { quoted: mek }
-      );
-    } catch (e) {
-      console.log(e);
-      reply(`${e}`);
-    }
-  }
-);
+* imagine
+* anime
+* bard
+* tiktokstalk
+* igstalk
+* news
+* manga
+* weather
+* cricketscore
+* google
+* lyrics
+* itunes
+* true
+
+Reply 0 to return to menu.
+`,
+
+  save: `
+💾 SAVE COMMANDS
+
+* savestatus
+* autosave
+* savesingle
+* saveall
+
+Reply 0 to return.
+`,
+
+  bug: `
+🐞 BUG TOOLS
+
+* bugon
+* bugoff
+* freeze
+* autobug
+
+Use with caution!
+`,
+
+  movie: `
+🎞️ MOVIE COMMANDS
+
+* imdb
+* findmovie
+* trailer
+* rating
+* subtitles
+
+Search and info about movies.
+`,
+
+  convert: `
+🔄 CONVERT TOOLS
+
+* img2pdf
+* text2img
+* mp3cut
+* mergepdf
+* audio2text
+
+For converting files or formats.
+`,
+
+  logo: `
+🖼️ LOGO MAKER
+
+* logotext [your text]
+* neonlogo
+* 3dlogo
+* sketchlogo
+[13:29, 08/06/2025] ChatGPT: Auto-generate styled logos.
+`,
+
+  about: `
+🤖 MADHAVI-MAX BOT
+
+A multipurpose WhatsApp bot.
+Includes: download, save, movie, convert & more.
+Developer: YOU 😎
+`
+}
